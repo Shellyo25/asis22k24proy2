@@ -26,5 +26,15 @@ namespace Capa_Vista_Cuentas_Corrientes
         {
 
         }
+
+        private void Lbl_Titulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClienteNuevo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

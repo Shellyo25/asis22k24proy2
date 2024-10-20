@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Capa_Vista_Cuentas_Corrientes
 {
-    public partial class CreditoCliente : Form
+    public partial class Vendedores_Clts : Form
     {
-        public CreditoCliente()
+        public Vendedores_Clts()
         {
             InitializeComponent();
         }

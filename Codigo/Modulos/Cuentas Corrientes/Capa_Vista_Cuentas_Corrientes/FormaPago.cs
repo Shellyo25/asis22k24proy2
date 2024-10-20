@@ -16,5 +16,20 @@ namespace Capa_Vista_Cuentas_Corrientes
         {
             InitializeComponent();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormaPago_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Lbl_documento_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

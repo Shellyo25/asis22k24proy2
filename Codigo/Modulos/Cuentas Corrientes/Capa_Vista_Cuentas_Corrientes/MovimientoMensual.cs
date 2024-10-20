@@ -16,5 +16,10 @@ namespace Capa_Vista_Cuentas_Corrientes
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace Capa_Vista_Cuentas_Corrientes
 {
-    partial class CreditoCliente
+    partial class Vendedores_Clts
     {
         /// <summary>
         /// Required designer variable.
@@ -45,8 +45,9 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Btn_borrar = new System.Windows.Forms.Button();
             this.Txt_saldo = new System.Windows.Forms.TextBox();
             this.Lbl_saldo = new System.Windows.Forms.Label();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.Btn_imprimir = new System.Windows.Forms.Button();
+            this.Lbl_id = new System.Windows.Forms.Label();
+            this.Txt_id = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,28 +90,28 @@ namespace Capa_Vista_Cuentas_Corrientes
             // 
             // Txt_depto
             // 
-            this.Txt_depto.Location = new System.Drawing.Point(215, 167);
+            this.Txt_depto.Location = new System.Drawing.Point(226, 203);
             this.Txt_depto.Name = "Txt_depto";
             this.Txt_depto.Size = new System.Drawing.Size(198, 20);
             this.Txt_depto.TabIndex = 21;
             // 
             // Txt_fecha
             // 
-            this.Txt_fecha.Location = new System.Drawing.Point(215, 140);
+            this.Txt_fecha.Location = new System.Drawing.Point(226, 176);
             this.Txt_fecha.Name = "Txt_fecha";
             this.Txt_fecha.Size = new System.Drawing.Size(198, 20);
             this.Txt_fecha.TabIndex = 20;
             // 
             // Txt_encargado
             // 
-            this.Txt_encargado.Location = new System.Drawing.Point(215, 113);
+            this.Txt_encargado.Location = new System.Drawing.Point(226, 149);
             this.Txt_encargado.Name = "Txt_encargado";
             this.Txt_encargado.Size = new System.Drawing.Size(198, 20);
             this.Txt_encargado.TabIndex = 19;
             // 
             // Txt_documento
             // 
-            this.Txt_documento.Location = new System.Drawing.Point(215, 86);
+            this.Txt_documento.Location = new System.Drawing.Point(226, 122);
             this.Txt_documento.Name = "Txt_documento";
             this.Txt_documento.Size = new System.Drawing.Size(116, 20);
             this.Txt_documento.TabIndex = 18;
@@ -119,7 +120,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             // 
             this.Lbl_depto.AutoSize = true;
             this.Lbl_depto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_depto.Location = new System.Drawing.Point(56, 170);
+            this.Lbl_depto.Location = new System.Drawing.Point(67, 206);
             this.Lbl_depto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_depto.Name = "Lbl_depto";
             this.Lbl_depto.Size = new System.Drawing.Size(89, 15);
@@ -130,7 +131,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             // 
             this.Lbl_fecha.AutoSize = true;
             this.Lbl_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_fecha.Location = new System.Drawing.Point(56, 140);
+            this.Lbl_fecha.Location = new System.Drawing.Point(67, 176);
             this.Lbl_fecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_fecha.Name = "Lbl_fecha";
             this.Lbl_fecha.Size = new System.Drawing.Size(44, 15);
@@ -141,7 +142,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             // 
             this.Lbl_encargado.AutoSize = true;
             this.Lbl_encargado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_encargado.Location = new System.Drawing.Point(56, 113);
+            this.Lbl_encargado.Location = new System.Drawing.Point(67, 149);
             this.Lbl_encargado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_encargado.Name = "Lbl_encargado";
             this.Lbl_encargado.Size = new System.Drawing.Size(70, 15);
@@ -152,7 +153,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             // 
             this.Lbl_documento.AutoSize = true;
             this.Lbl_documento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_documento.Location = new System.Drawing.Point(56, 86);
+            this.Lbl_documento.Location = new System.Drawing.Point(67, 122);
             this.Lbl_documento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_documento.Name = "Lbl_documento";
             this.Lbl_documento.Size = new System.Drawing.Size(115, 15);
@@ -179,7 +180,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             // 
             // Txt_saldo
             // 
-            this.Txt_saldo.Location = new System.Drawing.Point(215, 197);
+            this.Txt_saldo.Location = new System.Drawing.Point(226, 233);
             this.Txt_saldo.Name = "Txt_saldo";
             this.Txt_saldo.Size = new System.Drawing.Size(198, 20);
             this.Txt_saldo.TabIndex = 28;
@@ -188,7 +189,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             // 
             this.Lbl_saldo.AutoSize = true;
             this.Lbl_saldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_saldo.Location = new System.Drawing.Point(56, 200);
+            this.Lbl_saldo.Location = new System.Drawing.Point(67, 236);
             this.Lbl_saldo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_saldo.Name = "Lbl_saldo";
             this.Lbl_saldo.Size = new System.Drawing.Size(45, 15);
@@ -204,12 +205,32 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Btn_imprimir.Text = "Imprimir ";
             this.Btn_imprimir.UseVisualStyleBackColor = true;
             // 
+            // Lbl_id
+            // 
+            this.Lbl_id.AutoSize = true;
+            this.Lbl_id.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_id.Location = new System.Drawing.Point(74, 92);
+            this.Lbl_id.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_id.Name = "Lbl_id";
+            this.Lbl_id.Size = new System.Drawing.Size(63, 15);
+            this.Lbl_id.TabIndex = 30;
+            this.Lbl_id.Text = "ID Cliente:";
+            // 
+            // Txt_id
+            // 
+            this.Txt_id.Location = new System.Drawing.Point(226, 91);
+            this.Txt_id.Name = "Txt_id";
+            this.Txt_id.Size = new System.Drawing.Size(116, 20);
+            this.Txt_id.TabIndex = 31;
+            // 
             // CreditoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(814, 518);
+            this.Controls.Add(this.Txt_id);
+            this.Controls.Add(this.Lbl_id);
             this.Controls.Add(this.Btn_imprimir);
             this.Controls.Add(this.Txt_saldo);
             this.Controls.Add(this.Lbl_saldo);
@@ -254,7 +275,8 @@ namespace Capa_Vista_Cuentas_Corrientes
         private System.Windows.Forms.Button Btn_borrar;
         private System.Windows.Forms.TextBox Txt_saldo;
         private System.Windows.Forms.Label Lbl_saldo;
-        private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Button Btn_imprimir;
+        private System.Windows.Forms.Label Lbl_id;
+        private System.Windows.Forms.TextBox Txt_id;
     }
 }

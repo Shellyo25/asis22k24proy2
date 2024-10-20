@@ -24,27 +24,21 @@ namespace Capa_Vista_Cuentas_Corrientes
 
         private void chequesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //FormaPago.Show();
+            FormaPago man = new FormaPago();
+            man.Show(); 
         }
 
         private void nuevosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // ClienteNuevo.Show(); ESTO ME DA ERROR AL MOMENTO DE LLAMAR EL FORMULARIO
+            ClienteNuevo man = new ClienteNuevo();///este funciona *****
+            man.Show();
         }
 
-        private void mensualesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //MovimientoMensual.Show();
-        }
 
-        private void mensualToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tiposDePagoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // SaldoCliente.Show();
-        }
-
-        private void mensualToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            //CreditoCliente.Show();
+            FormaPago man = new FormaPago();///este funciona *****
+            man.Show();
         }
     }
 }
