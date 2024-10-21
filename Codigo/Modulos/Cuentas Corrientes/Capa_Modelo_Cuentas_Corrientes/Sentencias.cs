@@ -579,8 +579,31 @@ namespace Capa_Modelo_Cuentas_Corrientes
             }
         }
 
+        public OdbcDataAdapter queryCliente(string sQuery)
+        {
+            string sql = "SELECT  Pk_id_cliente, Fk_id_vendedor, nombre_cliente, direccion_cliente, telefono_cliente, saldo_cuenta, estado_cliente FROM "
+                + sTabla_Clientes + " WHERE Pk_id_cliente LIKE '%" + sQuery + "%' OR Pk_id_cliente LIKE '%" + sQuery + "%';";
 
-        //Forma de pago
+            OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
+            return dataTable;
+        }
+
+        public void eliminarCliente(string sId_cliente)
+        {
+            //funcioón para eliminar el reporte seleccionado, donde se utiliza la tabla declarada globalmente y el número de reporte que se pasa por parametro.
+            try
+            {
+                string sSql = "delete from " + sTabla_Clientes + " where Pk_id_cliente = " + sId_cliente + "; ";
+                OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se puede eliminar el registro " + sId_cliente + " en la tabla " + sTabla_Clientes);
+            }
+        }
+
+        //Cobrador
         public OdbcDataAdapter DisplayCobradores()// método que obtiene el contenido de la tabla reportes
         {
             string sSql = "SELECT Pk_id_cobrador, nombre_cobrador, direccion_cobrador, telefono_cobrador, departamento_cobrador, estado_cobrador FROM " + Tbl_cobrador + " WHERE Pk_id_cobrador IS NOT NULL AND Pk_id_cobrador != '';";
@@ -653,6 +676,7 @@ namespace Capa_Modelo_Cuentas_Corrientes
                 Console.WriteLine(ex.Message.ToString() + " \nNo se puede eliminar el registro " + sId_cobrador + " en la tabla " + Tbl_cobrador);
             }
         }
+        
         //Forma de pago
         public int getMaxIdFrmPago()
         {
@@ -727,5 +751,84 @@ namespace Capa_Modelo_Cuentas_Corrientes
             }
         }
 
+        ////PROVEEDOR
+        ///
+        //proveedor
+
+        /*string sTabla_Proveedor = "Tbl_proveedores";
+
+        public OdbcDataAdapter DisplayProv()//
+        {
+            string sSql = "SELECT Pk_id_proveedor, fecha_registro, nombre_proveedor, direccion, telefono, email, saldo_cuenta, estado_proveedor FROM  "
+                + sTabla_Proveedor + " WHERE Pk_id_proveedor IS NOT NULL AND Pk_id_proveedor != '';";
+            OdbcDataAdapter dataTable = new OdbcDataAdapter();
+            try
+            {
+                dataTable = new OdbcDataAdapter(sSql, conexion.conexion());
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se pudo consultar la tabla " + sTabla_Proveedor);
+            }
+            return dataTable;
+        }
+        public int getMaxIdPr()
+        {
+            int iPk_id_proveedor = 0;
+            string sSql = "SELECT max(Pk_id_proveedor) FROM " + sTabla_Proveedor + ";";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
+                iPk_id_proveedor = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se pudo obtener el id del registro en la tabla " + sTabla_Proveedor);
+            }
+            return iPk_id_proveedor;
+        }
+
+        public void registrarProveedor(string Pk_id_proveedor, string  sfecha_registro, string  snombre_proveedor, 
+            string sdireccion, string  stelefono, string  semail, string ssaldo_cuenta, string sestado_proveedor)
+        {
+            //la variable campos es una variable plana donde se ponen los nombres de las columnas para guardar el reporte
+            try
+            {
+                string sCampos = " Pk_id_proveedor, fecha_registro, nombre_proveedor, direccion, telefono, email, saldo_cuenta, estado_proveedor";
+                string sSql = "INSERT INTO " + sTabla_Proveedor + " (" + sCampos + ") VALUES ('" + Pk_id_proveedor + "', '" + sfecha_registro + "', '"
+                    + snombre_proveedor + "', '" + sdireccion + "', '" + stelefono + "', '" + semail + "', '" + ssaldo_cuenta + "', '" + sestado_proveedor+ "');";
+                OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se pudo guardar el registro en la tabla " + sTabla_Proveedor);
+            }
+        }
+
+        public OdbcDataAdapter queryProv(string sQuery)
+        {
+            string sql = "SELECT  Pk_id_proveedor, fecha_registro, nombre_proveedor, direccion, telefono, email, saldo_cuenta, estado_proveedor FROM "
+                + sTabla_Proveedor + " WHERE Pk_id_proveedor LIKE '%" + sQuery + "%' OR Pk_id_proveedor LIKE '%" + sQuery + "%';";
+
+            OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
+            return dataTable;
+        }
+
+        public void eliminarProv(string sId_proveedor)
+        {
+            //funcioón para eliminar el reporte seleccionado, donde se utiliza la tabla declarada globalmente y el número de reporte que se pasa por parametro.
+            try
+            {
+                string sSql = "delete from " + sTabla_Proveedor + " where Pk_id_proveedor = " + sId_proveedor + "; ";
+                OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se puede eliminar el registro " + sId_proveedor + " en la tabla " + sTabla_Proveedor);
+            }
+        }*/
     }
 }

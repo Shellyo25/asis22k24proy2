@@ -154,12 +154,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="ProveedorNuevo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProveedorNuevo.Designer.cs">
-      <DependentUpon>ProveedorNuevo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reportes_Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,9 +228,6 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProveedorNuevo.resx">
-      <DependentUpon>ProveedorNuevo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes_Clientes.resx">
       <DependentUpon>Reportes_Clientes.cs</DependentUpon>

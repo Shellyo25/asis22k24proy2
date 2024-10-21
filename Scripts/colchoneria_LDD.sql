@@ -484,7 +484,7 @@ CREATE TABLE IF NOT EXISTS `Tbl_Transaccion_cliente` (
 
 CREATE TABLE IF NOT EXISTS `Tbl_proveedores` (
 	Pk_id_proveedor INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    fecha_registro DATE,
+    fecha_registro VARCHAR(150) NOT NULL,
     nombre_proveedor VARCHAR(150) NOT NULL,
     direccion VARCHAR(255),
     telefono VARCHAR(20),

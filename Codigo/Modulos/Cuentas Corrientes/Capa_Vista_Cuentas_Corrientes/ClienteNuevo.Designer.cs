@@ -162,6 +162,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Btn_buscar.TabIndex = 38;
             this.Btn_buscar.Text = "Buscar ";
             this.Btn_buscar.UseVisualStyleBackColor = true;
+            this.Btn_buscar.Click += new System.EventHandler(this.Btn_buscar_Click);
             // 
             // Btn_eliminar
             // 
@@ -172,6 +173,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Btn_eliminar.TabIndex = 37;
             this.Btn_eliminar.Text = "Eliminar";
             this.Btn_eliminar.UseVisualStyleBackColor = true;
+            this.Btn_eliminar.Click += new System.EventHandler(this.Btn_eliminar_Click);
             // 
             // Btn_actualizar
             // 
@@ -182,6 +184,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Btn_actualizar.TabIndex = 36;
             this.Btn_actualizar.Text = "Actualizar";
             this.Btn_actualizar.UseVisualStyleBackColor = true;
+            this.Btn_actualizar.Click += new System.EventHandler(this.Btn_actualizar_Click);
             // 
             // Btn_editar
             // 
@@ -223,7 +226,6 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.label2.Size = new System.Drawing.Size(79, 23);
             this.label2.TabIndex = 40;
             this.label2.Text = "Telefono:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Txt_direccion
             // 

@@ -34,7 +34,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             Dgv_clientes.Columns[3].HeaderText = "telefono_cliente";
             Dgv_clientes.Columns[4].HeaderText = "direccion_cliente";
             Dgv_clientes.Columns[5].HeaderText = "saldo_cuenta";
-            Dgv_clientes.Columns[5].HeaderText = "estado_cliente";
+            Dgv_clientes.Columns[6].HeaderText = "estado_cliente";
 
         }
         private void cargarVendedor()
@@ -45,20 +45,6 @@ namespace Capa_Vista_Cuentas_Corrientes
             Cbo_Vendedor.DataSource = vendedorCodes;
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtNit_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Btn_guardar_Click(object sender, EventArgs e)
         {
@@ -85,6 +71,39 @@ namespace Capa_Vista_Cuentas_Corrientes
                 Txt_saldo.Text = Dgv_clientes.CurrentRow.Cells[5].Value.ToString();
                 Cbo_estado.Text = Dgv_clientes.CurrentRow.Cells[6].Value.ToString();
             }
+        }
+
+        private void Btn_buscar_Click(object sender, EventArgs e)
+        {
+            DataTable data = controlador.queryCliente(Txt_nombre);
+            Dgv_clientes.DataSource = data;
+        }
+
+        private void Btn_actualizar_Click(object sender, EventArgs e)
+        {
+            actualizarVistaClientes();
+            getIdC();
+
+            Btn_guardar.Enabled = true;
+            Btn_editar.Enabled = false;
+            Btn_eliminar.Enabled = false;
+            Btn_buscar.Enabled = true;
+            Btn_actualizar.Enabled = false;
+
+            Txt_nombre.Text = "";
+            Cbo_Vendedor.SelectedIndex = 0;
+            Txt_nombre.Text = "";
+            Txt_telefono.Text = "";
+            Txt_direccion.Text = "";
+            Txt_saldo.Text = "";
+            Cbo_estado.SelectedIndex = 0;
+        }
+
+        private void Btn_eliminar_Click(object sender, EventArgs e)
+        {
+            controlador.borrarCliente(Txt_id_cliente);
+            actualizarVistaClientes();
+            getIdC();
         }
     }
 }

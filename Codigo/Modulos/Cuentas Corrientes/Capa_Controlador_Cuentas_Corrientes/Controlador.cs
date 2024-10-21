@@ -28,6 +28,16 @@ namespace Capa_Controlador_Cuentas_Corrientes
             return nextId.ToString();
         }
 
+        public DataTable MostrarProveedor()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string getNextIdProv()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<string> listadoDeuda()
         {
             List<string> deudasCodes = sentencias.getDeudas();
@@ -46,11 +56,22 @@ namespace Capa_Controlador_Cuentas_Corrientes
             return clientesCodes;
         }
 
+        public void guardarProveedor(string text1, string text2, string text3, string text4, string text5, string text6, string text7, string text8)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<string> listadoPais()
         {
             List<string> paisCodes = sentencias.getPais();
             return paisCodes;
         }
+
+        public DataTable queryProveedor(TextBox txt_nombre)
+        {
+            throw new NotImplementedException();
+        }
+
         public int guardarTransaccion(TextBox PK_id_transaccion, string sFk_id_clientes, string sFk_id_pais, string sfecha_transaccion,
             string scuenta_transaccion, string scuotas_transaccion, string sFk_id_deuda, string smonto_deuda, string smonto_transaccion,
             string ssaldo_pendiente, string sFk_id_pago, string stipo_moneda, string sserie_transaccion, string sestado_transaccion)
@@ -72,6 +93,11 @@ namespace Capa_Controlador_Cuentas_Corrientes
             ssaldo_pendiente, sFk_id_pago, stipo_moneda, sserie_transaccion, sestado_transaccion);
                 return 1;
             }
+        }
+
+        public void borrarProveedor(TextBox txt_id_proveedor)
+        {
+            throw new NotImplementedException();
         }
 
         // Paises
@@ -320,6 +346,39 @@ namespace Capa_Controlador_Cuentas_Corrientes
                 return 1;
             }
         }
+        public DataTable queryCliente(TextBox query)
+        {
+            OdbcDataAdapter data2 = sentencias.queryCliente(query.Text);
+            DataTable tabla2 = new DataTable();
+            data2.Fill(tabla2);
+            return tabla2;
+        }
+
+        public int borrarCliente(TextBox Pk_id_cliente)
+        {
+            //se valida que el textbox no este vacío o con espacios en blanco
+            if (string.IsNullOrEmpty(Pk_id_cliente.Text))
+            {
+                MessageBox.Show("El campo no puede estar vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            else
+            {
+                //luego rectificamos que el usuario quiere borrar el reporte
+                DialogResult result = MessageBox.Show("¿Desea eliminar al cliente #" + Pk_id_cliente.Text + "?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    MessageBox.Show("No se borró el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return 0;
+                }
+                else
+                {
+                    sentencias.eliminarCliente(Pk_id_cliente.Text);
+                    return 1;
+                }
+            }
+        }
+
         //Cobrador
 
         public DataTable MostrarCobrador()
@@ -448,5 +507,75 @@ namespace Capa_Controlador_Cuentas_Corrientes
                 }
             }
         }
+
+        ////////////////////////////////////////////////////////////////////////
+        ///PROVEEDORES
+        ///
+        // Proveedores
+
+        /*public String getNextIdPr()
+        {
+            int nextId = sentencias.getMaxIdPr();
+            nextId = nextId + 1;
+            return nextId.ToString();
+        }
+        public int guardarProveedor(TextBox Pk_id_proveedor, string sfecha_registro, string snombre_proveedor, string sdireccion, string stelefono, string semail, string ssaldo_cuenta, string sestado_proveedor)
+        {
+            //se valida que el textbox no este vacío o con espacios en blanco
+            if (string.IsNullOrEmpty(Pk_id_proveedor.Text) || string.IsNullOrEmpty(sfecha_registro) || string.IsNullOrEmpty(snombre_proveedor) ||
+                string.IsNullOrEmpty(sdireccion) || string.IsNullOrEmpty(stelefono) || string.IsNullOrEmpty(semail)
+                || string.IsNullOrEmpty(ssaldo_cuenta) || string.IsNullOrEmpty(sestado_proveedor))
+            {
+                MessageBox.Show("Existen campos vacios, revise y vuelva a intentarlo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            else
+            {
+                sentencias.registrarProveedor(Pk_id_proveedor.Text, sfecha_registro, snombre_proveedor,
+            sdireccion, stelefono, semail, ssaldo_cuenta, sestado_proveedor);
+                return 1;
+            }
+        }
+
+        public DataTable MostrarProv()
+        {
+            OdbcDataAdapter data = sentencias.DisplayProv();
+            DataTable tabla = new DataTable();
+            data.Fill(tabla);
+            return tabla;
+        }
+        public DataTable queryProv(TextBox query)
+        {
+            OdbcDataAdapter data2 = sentencias.queryProv(query.Text);
+            DataTable tabla2 = new DataTable();
+            data2.Fill(tabla2);
+            return tabla2;
+        }
+
+        public int borrarProv(TextBox Pk_id_proveedor)
+        {
+            //se valida que el textbox no este vacío o con espacios en blanco
+            if (string.IsNullOrEmpty(Pk_id_proveedor.Text))
+            {
+                MessageBox.Show("El campo no puede estar vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            else
+            {
+                //luego rectificamos que el usuario quiere borrar el reporte
+                DialogResult result = MessageBox.Show("¿Desea eliminar al proveedor #" + Pk_id_proveedor.Text + "?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    MessageBox.Show("No se borró el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return 0;
+                }
+                else
+                {
+                    sentencias.eliminarProv(Pk_id_proveedor.Text);
+                    return 1;
+                }
+            }
+        }*/
     }
+   
 }

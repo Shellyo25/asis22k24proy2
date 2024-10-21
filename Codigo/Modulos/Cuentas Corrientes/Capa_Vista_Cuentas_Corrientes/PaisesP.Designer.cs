@@ -57,6 +57,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Dgv_paises.RowTemplate.Height = 24;
             this.Dgv_paises.Size = new System.Drawing.Size(698, 202);
             this.Dgv_paises.TabIndex = 59;
+            this.Dgv_paises.DoubleClick += new System.EventHandler(this.Dgv_paises_DoubleClick);
             // 
             // Btn_buscar
             // 
@@ -69,6 +70,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Btn_buscar.TabIndex = 58;
             this.Btn_buscar.Text = "Buscar ";
             this.Btn_buscar.UseVisualStyleBackColor = true;
+            this.Btn_buscar.Click += new System.EventHandler(this.Btn_buscar_Click);
             // 
             // Btn_eliminar
             // 
@@ -81,6 +83,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Btn_eliminar.TabIndex = 57;
             this.Btn_eliminar.Text = "Eliminar";
             this.Btn_eliminar.UseVisualStyleBackColor = true;
+            this.Btn_eliminar.Click += new System.EventHandler(this.Btn_eliminar_Click);
             // 
             // Btn_actualizar
             // 
@@ -93,6 +96,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Btn_actualizar.TabIndex = 56;
             this.Btn_actualizar.Text = "Actualizar";
             this.Btn_actualizar.UseVisualStyleBackColor = true;
+            this.Btn_actualizar.Click += new System.EventHandler(this.Btn_actualizar_Click);
             // 
             // Btn_editar
             // 
@@ -117,6 +121,7 @@ namespace Capa_Vista_Cuentas_Corrientes
             this.Btn_guardar.TabIndex = 54;
             this.Btn_guardar.Text = "Guardar";
             this.Btn_guardar.UseVisualStyleBackColor = true;
+            this.Btn_guardar.Click += new System.EventHandler(this.Btn_guardar_Click);
             // 
             // Lbl_titulo
             // 
