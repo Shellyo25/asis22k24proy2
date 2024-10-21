@@ -178,7 +178,151 @@ namespace Capa_Modelo_Cuentas_Corrientes
                 Console.WriteLine(ex.Message.ToString() + " \nNo se pudo guardar el registro en la tabla " + sTabla_transaccion);
             }
         }
-        
-        
+
+        public OdbcDataAdapter DisplayCobradores()// método que obtiene el contenido de la tabla reportes
+        {
+            string sSql = "SELECT Pk_id_cobrador, nombre_cobrador, direccion_cobrador, telefono_cobrador, departamento_cobrador, estado_cobrador FROM " + Tbl_cobrador + " WHERE Pk_id_cobrador IS NOT NULL AND Pk_id_cobrador != '';";
+            OdbcDataAdapter dataTable = new OdbcDataAdapter();
+            try
+            {
+                dataTable = new OdbcDataAdapter(sSql, conexion.conexion());
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se pudo consultar la tabla " + Tbl_cobrador);
+            }
+            return dataTable;
+        }
+
+        string Tbl_cobrador = "Tbl_cobrador";
+        public void registrarCobrador(string idCobrador, string sNombre, string sDireccion, string sTelefono, string sDepartamento, string sEstado)
+        {
+            //la variable campos es una variable plana donde se ponen los nombres de las columnas para guardar el reporte
+            try
+            {
+                string sCampos = "Pk_id_cobrador, nombre_cobrador, direccion_cobrador, telefono_cobrador, departamento_cobrador, estado_cobrador";
+                string sSql = "INSERT INTO " + Tbl_cobrador + " (" + sCampos + ") VALUES ('" + idCobrador + "', '" + sNombre + "', '" + sDireccion + "', '" + sTelefono + "', '" + sDepartamento + "', '" + sEstado + "');";
+                OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se pudo guardar el registro en la tabla " + Tbl_cobrador);
+            }
+        }
+
+        public OdbcDataAdapter queryCobrador(string sQuery)
+        {
+            string sql = "SELECT  Pk_id_cobrador, nombre_cobrador, direccion_cobrador, telefono_cobrador, departamento_cobrador, estado_cobrador FROM "
+                + Tbl_cobrador + " WHERE nombre_cobrador LIKE '%" + sQuery + "%' OR nombre_cobrador LIKE '%" + sQuery + "%';";
+
+            OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
+            return dataTable;
+        }
+
+        public int getMaxIdCobrador()
+        {
+            int iPk_id_paises = 0;
+            string sSql = "SELECT max(Pk_id_cobrador) FROM " + Tbl_cobrador + ";";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
+                iPk_id_paises = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se pudo obtener el id del registro en la tabla " + Tbl_cobrador);
+            }
+            return iPk_id_paises;
+        }
+
+        public void eliminarcobrador(string sId_cobrador)
+        {
+            //funcioón para eliminar el reporte seleccionado, donde se utiliza la tabla declarada globalmente y el número de reporte que se pasa por parametro.
+            try
+            {
+                string sSql = "delete from " + Tbl_cobrador + " where Pk_id_cobrador = " + sId_cobrador + "; ";
+                OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se puede eliminar el registro " + sId_cobrador + " en la tabla " + Tbl_cobrador);
+            }
+        }
+
+        public int getMaxIdFrmPago()
+        {
+            int iPk_id_paises = 0;
+            string sSql = "SELECT max(Pk_id_pago) FROM " + Tbl_tipodepago + ";";
+            try
+            {
+                OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
+                iPk_id_paises = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se pudo obtener el id del registro en la tabla " + Tbl_tipodepago);
+            }
+            return iPk_id_paises;
+        }
+
+        string Tbl_tipodepago = "Tbl_tipodepago";
+        public void registrarFrmpago(string idFormaPago, string sNombreFrmPago, string sMoneda, string sEstadoFrmPago)
+        {
+            //la variable campos es una variable plana donde se ponen los nombres de las columnas para guardar el reporte
+            try
+            {
+                string sCamposFrmPago = "Pk_id_pago, nombre_pago, tipo_moneda, estado_pago";
+                string sSql = "INSERT INTO " + Tbl_tipodepago + " (" + sCamposFrmPago + ") VALUES ('" + idFormaPago + "', '" + sNombreFrmPago + "', '" + sMoneda + "', '" + sEstadoFrmPago + "');";
+                OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se pudo guardar el registro en la tabla " + Tbl_cobrador);
+            }
+        }
+
+        public OdbcDataAdapter DisplayFrmPago()// método que obtiene el contenido de la tabla reportes
+        {
+            string sSql = "SELECT Pk_id_pago, nombre_pago, tipo_moneda, estado_pago FROM " + Tbl_tipodepago + " WHERE Pk_id_pago IS NOT NULL AND Pk_id_pago != '';";
+            OdbcDataAdapter dataTable = new OdbcDataAdapter();
+            try
+            {
+                dataTable = new OdbcDataAdapter(sSql, conexion.conexion());
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se pudo consultar la tabla " + Tbl_cobrador);
+            }
+            return dataTable;
+        }
+
+        public OdbcDataAdapter queryFrmPago(string sQuery)
+        {
+            string sql = "SELECT  Pk_id_pago, nombre_pago, tipo_moneda, estado_pago FROM "
+                + Tbl_tipodepago + " WHERE Pk_id_pago LIKE '%" + sQuery + "%' OR pk_id_pago LIKE '%" + sQuery + "%';";
+
+            OdbcDataAdapter dataTable = new OdbcDataAdapter(sql, conexion.conexion());
+            return dataTable;
+        }
+
+        public void eliminarFrmPago(string sPk_id_pago)
+        {
+            //funcioón para eliminar el reporte seleccionado, donde se utiliza la tabla declarada globalmente y el número de reporte que se pasa por parametro.
+            try
+            {
+                string sSql = "delete from " + Tbl_tipodepago + " where Pk_id_pago = " + sPk_id_pago + "; ";
+                OdbcCommand cmd = new OdbcCommand(sSql, conexion.conexion());
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString() + " \nNo se puede eliminar el registro " + sPk_id_pago + " en la tabla " + Tbl_tipodepago);
+            }
+        }
     }
 }
