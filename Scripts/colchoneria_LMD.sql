@@ -731,6 +731,7 @@ VALUES
 ('Argentina', 'Sudamérica', 1),
 ('México', 'América del Norte', 1);
 
+SELECT * FROM tbl_paises;
 -- Insertar datos en Tbl_tipodepago
 INSERT INTO `Tbl_tipodepago` (nombre_pago, tipo_moneda, estado_pago)
 VALUES
@@ -739,7 +740,7 @@ VALUES
 ('Tarjeta de Débito', 'Quetrzales', 1),
 ('Transferencia', 'Quetzales', 1);
 
--- Insertar datos en Tbl_Deudas_Clientes
+-- Insertar datos en Tbl_Deudas_Cliente
 INSERT INTO `Tbl_Deudas_Clientes` (Fk_id_cliente, Fk_id_cobrador, Fk_id_pago, monto_deuda, fecha_inicio_deuda, 
 fecha_vencimiento_deuda, descripcion_deuda, estado_deuda)
 VALUES

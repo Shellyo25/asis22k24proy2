@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Capa_Vista_Cuentas_Corrientes
 {
-    public partial class Movimientos_Proveedor : Form
+    public partial class PaisesP : Form
     {
-        public Movimientos_Proveedor()
+        public PaisesP()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

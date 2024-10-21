@@ -22,8 +22,8 @@ namespace Capa_Vista_Cuentas_Corrientes
         {
             if (panelMenuCatalogos.Visible == true)
                 panelMenuCatalogos.Visible = false;
-            if (panelMenuProcesos.Visible == true)
-                panelMenuProcesos.Visible = false;
+            if (panelMenuProveedor.Visible == true)
+                panelMenuProveedor.Visible = false;
         }
         private void muestraSubMenu(Panel subMenu)
         {
@@ -154,9 +154,9 @@ namespace Capa_Vista_Cuentas_Corrientes
             
         }
 
-        private void btnMenuProcesos_Click(object sender, EventArgs e)
+        private void btnMenuProveedor_Click(object sender, EventArgs e)
         {
-            muestraSubMenu(panelMenuProcesos);
+            muestraSubMenu(panelMenuProveedor);
         }
 
         private void btnMenuCatalogosOpcion2_Click_1(object sender, EventArgs e)
@@ -198,6 +198,35 @@ namespace Capa_Vista_Cuentas_Corrientes
         {
             AbrirFormulario<Deuda_Clts>();
             btn_MenuCatalogosOpcion6.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();
+        }
+
+        private void btn_MenuCatalogosOpcion7_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<Transaccion_Clientes>();
+            btn_MenuCatalogosOpcion7.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();
+        }
+
+        private void btnMenuProcesosOpcion1_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<NuevosProveedores>();
+            btnMenuProveedorOpcion1.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<PaisesP>();
+            btnMenuProveedorOpcion2.BackColor = Color.FromArgb(12, 61, 92);
+            ocultaSubMenu();
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormaPagoP>();
+            btnMenuProveedorOpcion3.BackColor = Color.FromArgb(12, 61, 92);
             ocultaSubMenu();
         }
         #endregion

@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Capa_Vista_Cuentas_Corrientes
 {
-    public partial class FormaPago : Form
+    public partial class FormaPagoP : Form
     {
         Capa_Controlador_Cuentas_Corrientes.Controlador controlador = new Capa_Controlador_Cuentas_Corrientes.Controlador();
-        public FormaPago()
+        public FormaPagoP()
         {
             InitializeComponent();
         }
@@ -32,21 +32,21 @@ namespace Capa_Vista_Cuentas_Corrientes
         {
             Txt_id_pago.Text = controlador.getNextIdF();
         }
-        
-        private void Btn_guardar_Click(object sender, EventArgs e)
+
+        private void Btn_guardar_Click_1(object sender, EventArgs e)
         {
             controlador.guardarFormaPago(Txt_id_pago, Cbo_Nombre.Text, Cbo_Moneda.Text, Cbo_Estado.Text);
             actualizarDataFormaPago();
             getIdF();
         }
 
-        private void Btn_buscar_Click(object sender, EventArgs e)
+        private void Btn_buscar_Click_1(object sender, EventArgs e)
         {
             DataTable data = controlador.queryFrmPago(Txt_id_pago);
             DgvFormaPago.DataSource = data;
         }
 
-        private void Btn_actualizar_Click(object sender, EventArgs e)
+        private void Btn_actualizar_Click_1(object sender, EventArgs e)
         {
             actualizarVistaFrmPago();
             getIdF();
@@ -63,6 +63,14 @@ namespace Capa_Vista_Cuentas_Corrientes
             Cbo_Estado.Text = "";
         }
 
+        private void Btn_borrar_Click_1(object sender, EventArgs e)
+        {
+            controlador.borrarFrmPago(Txt_id_pago);
+            actualizarVistaFrmPago();
+            getIdF();
+
+        }
+
         private void actualizarVistaFrmPago()
         {
             DataTable data = controlador.MostrarFrmPago();
@@ -71,13 +79,6 @@ namespace Capa_Vista_Cuentas_Corrientes
             DgvFormaPago.Columns[1].HeaderText = "Nombre";
             DgvFormaPago.Columns[2].HeaderText = "Moneda";
             DgvFormaPago.Columns[3].HeaderText = "Estado";
-        }
-
-        private void Btn_borrar_Click(object sender, EventArgs e)
-        {
-            controlador.borrarFrmPago(Txt_id_pago);
-            actualizarVistaFrmPago();
-            getIdF();
         }
     }
 }

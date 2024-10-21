@@ -402,7 +402,7 @@ CREATE TABLE `venta` (
 -- --------------------------------------------------------
 -- TABLAS MAESTRAS DE CUENTAS CORRIENTES
 CREATE TABLE IF NOT EXISTS `Tbl_vendedor` (
-	Pk_id_vendedor INT PRIMARY KEY AUTO_INCREMENT,
+	Pk_id_vendedor INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nombre_vendedor VARCHAR(150) NOT NULL,
     direccion_vendedor VARCHAR(150) NOT NULL,
     telefono_vendedor INT NOT NULL,
@@ -411,7 +411,7 @@ CREATE TABLE IF NOT EXISTS `Tbl_vendedor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS `Tbl_clientes` (
-	Pk_id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+	Pk_id_cliente INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     Fk_id_vendedor INT NOT NULL,
     nombre_cliente VARCHAR(150) NOT NULL,
     telefono_cliente INT NOT NULL,
@@ -422,7 +422,7 @@ CREATE TABLE IF NOT EXISTS `Tbl_clientes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS `Tbl_cobrador` (
-	Pk_id_cobrador INT PRIMARY KEY AUTO_INCREMENT,
+	Pk_id_cobrador INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nombre_cobrador VARCHAR(150) NOT NULL,
     direccion_cobrador VARCHAR(150) NOT NULL,
     telefono_cobrador INT NOT NULL,
@@ -431,7 +431,7 @@ CREATE TABLE IF NOT EXISTS `Tbl_cobrador` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE IF NOT EXISTS `Tbl_paises` (
-	Pk_id_pais INT PRIMARY KEY AUTO_INCREMENT,
+	Pk_id_pais INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nombre_pais VARCHAR(150) NOT NULL,
     region_pais VARCHAR(150) NOT NULL,
     estatus_pais TINYINT DEFAULT 0 NOT NULL
@@ -439,20 +439,20 @@ CREATE TABLE IF NOT EXISTS `Tbl_paises` (
 
 
 CREATE TABLE IF NOT EXISTS `Tbl_tipodepago` (
-	Pk_id_pago INT PRIMARY KEY AUTO_INCREMENT,
+	Pk_id_pago INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nombre_pago VARCHAR(150) NOT NULL,
     tipo_moneda VARCHAR(15) NOT NULL,
     estado_pago TINYINT DEFAULT 0 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci; 
 
 CREATE TABLE IF NOT EXISTS `Tbl_Deudas_Clientes` (
-    Pk_id_deuda INT PRIMARY KEY AUTO_INCREMENT,
+    Pk_id_deuda INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     Fk_id_cliente INT NOT NULL,
     Fk_id_cobrador INT NOT NULL,
     Fk_id_pago INT NOT NULL,
     monto_deuda DECIMAL(10, 2) NOT NULL,
-    fecha_inicio_deuda DATE NOT NULL,
-    fecha_vencimiento_deuda DATE NOT NULL,
+    fecha_inicio_deuda VARCHAR(255) NOT NULL,
+    fecha_vencimiento_deuda VARCHAR(255) NOT NULL,
     descripcion_deuda VARCHAR(255),
     estado_deuda TINYINT DEFAULT 0 NOT NULL,
     FOREIGN KEY (`Fk_id_cliente`) REFERENCES `Tbl_clientes` (`Pk_id_cliente`),
@@ -483,7 +483,7 @@ CREATE TABLE IF NOT EXISTS `Tbl_Transaccion_cliente` (
 
 
 CREATE TABLE IF NOT EXISTS `Tbl_proveedores` (
-	Pk_id_proveedor INT PRIMARY KEY AUTO_INCREMENT,
+	Pk_id_proveedor INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     fecha_registro DATE,
     nombre_proveedor VARCHAR(150) NOT NULL,
     direccion VARCHAR(255),
@@ -494,7 +494,7 @@ CREATE TABLE IF NOT EXISTS `Tbl_proveedores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
     CREATE TABLE IF NOT EXISTS `Tbl_Deudas_Proveedores` (
-    Pk_id_deuda INT NOT NULL AUTO_INCREMENT,
+    Pk_id_deuda INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     Fk_id_proveedor INT NOT NULL,
     Fk_id_pago INT NOT NULL,
     monto_deuda DECIMAL(10, 2) NOT NULL,
@@ -502,13 +502,12 @@ CREATE TABLE IF NOT EXISTS `Tbl_proveedores` (
     fecha_vencimiento_deuda DATE NOT NULL,
     descripcion_deuda VARCHAR(255),
     estado_deuda TINYINT DEFAULT 0 NOT NULL,
-    PRIMARY KEY (`Pk_id_deuda`),  -- Definir la clave primaria
     FOREIGN KEY (`Fk_id_proveedor`) REFERENCES `Tbl_proveedores` (`Pk_id_proveedor`),
     FOREIGN KEY (`Fk_id_pago`) REFERENCES `Tbl_tipodepago` (`Pk_id_pago`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 CREATE TABLE IF NOT EXISTS `Tbl_Transaccion_proveedor` (
-	Pk_id_transaccion INT PRIMARY KEY AUTO_INCREMENT,
+	Pk_id_transaccion INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     Fk_id_proveedor INT NOT NULL,
     Fk_id_pais INT NOT NULL,
     fecha_transaccion VARCHAR(150) NOT NULL,
