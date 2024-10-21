@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Capa_Vista_Cuentas_Corrientes
 {
-    public partial class ClienteNuevo : Form
+    public partial class ClienteNuevo : FormPrincipal
     {
         Capa_Controlador_Cuentas_Corrientes.Controlador controlador = new Capa_Controlador_Cuentas_Corrientes.Controlador();
         public ClienteNuevo()
