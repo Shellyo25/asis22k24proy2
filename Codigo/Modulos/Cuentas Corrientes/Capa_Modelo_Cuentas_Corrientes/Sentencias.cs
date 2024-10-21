@@ -324,5 +324,6 @@ namespace Capa_Modelo_Cuentas_Corrientes
                 Console.WriteLine(ex.Message.ToString() + " \nNo se puede eliminar el registro " + sPk_id_pago + " en la tabla " + Tbl_tipodepago);
             }
         }
+
     }
 }
